@@ -65,6 +65,15 @@ public class CalculatePi {
         return pi;
     }
 
+    class SpigotParams {
+        public int[] digits;
+        public int arrayCounter;
+        public int preDigit;
+        public int nines;
+        public int digitCounter;
+        public int chainLength;
+        public int[] chain;
+    }
 
     /**
      * The Rabinowitz and Wagon spigot algorithm for generating digits of Pi.
@@ -83,41 +92,50 @@ public class CalculatePi {
      * @return an array of digits
      */
     public int[] spigot(int numberOfDigits) {
-        int[] digits = new int[numberOfDigits];
-        int arrayCounter = 0;
-        int chainLength = (10 * numberOfDigits) / 3 + 1;
-        int digitCounter, chainCounter, preDigit = 0, nines = 0;
-        int[] chain = new int[chainLength];
+        SpigotParams spigotParams = new SpigotParams();
 
-        for (digitCounter = numberOfDigits; digitCounter != 0; ) {
-            int q = 0;
-            int x = 0;
-            int k = chainLength + chainLength - 1;
+        spigotParams.digits = new int[numberOfDigits];
+        spigotParams.arrayCounter = 0;
+        spigotParams.preDigit = 0;
+        spigotParams.nines = 0;
+        spigotParams.digitCounter = 0;
+        spigotParams.chainLength = (10 * numberOfDigits) / 3 + 1;
+        spigotParams.chain = new int[spigotParams.chainLength];
 
-            for (chainCounter = chainLength; chainCounter > 0; --chainCounter) {
-                x = (digitCounter == numberOfDigits ? 20 : 10 * chain[chainCounter - 1]) + q * chainCounter;
-                q = x / k;
-                chain[chainCounter - 1] = x - q * k;
-                k -= 2;
-            }
-
-            k = x % 10;
-            if (k == 9) ++nines;
-
-            else {
-                --digitCounter;
-                digits[arrayCounter++] = preDigit + x / 10;
-
-                for (; nines != 0; --nines) {
-                    if (digitCounter != 0) {
-                        --digitCounter;
-                        digits[arrayCounter++] = x >= 10 ? 0 : 9;
-                    }
-                }
-
-                preDigit = k;
-            }
+        for (spigotParams.digitCounter = numberOfDigits; spigotParams.digitCounter != 0; ) {
+            calculateDigit(numberOfDigits, spigotParams);
         }
-        return digits;
+        return spigotParams.digits;
+    }
+
+
+    public void calculateDigit(int numberOfDigits, SpigotParams spigotParams) {
+        int q = 0;
+        int x = 0;
+        int k = spigotParams.chainLength + spigotParams.chainLength - 1;
+
+        for (int chainCounter = spigotParams.chainLength; chainCounter > 0; --chainCounter) {
+            x = (spigotParams.digitCounter == numberOfDigits ? 20 : 10 * spigotParams.chain[chainCounter - 1]) + q * chainCounter;
+            q = x / k;
+            spigotParams.chain[chainCounter - 1] = x - q * k;
+            k -= 2;
+        }
+
+        k = x % 10;
+        if (k == 9) ++spigotParams.nines;
+
+        else {
+            --spigotParams.digitCounter;
+            spigotParams.digits[spigotParams.arrayCounter++] = spigotParams.preDigit + x / 10;
+
+            for (; spigotParams.nines != 0; --spigotParams.nines) {
+                if (spigotParams.digitCounter != 0) {
+                    --spigotParams.digitCounter;
+                    spigotParams.digits[spigotParams.arrayCounter++] = x >= 10 ? 0 : 9;
+                }
+            }
+
+            spigotParams.preDigit = k;
+        }
     }
 }
