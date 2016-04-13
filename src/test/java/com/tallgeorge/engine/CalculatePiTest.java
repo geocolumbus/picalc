@@ -44,7 +44,6 @@ public class CalculatePiTest {
 
         assertArrayEquals(expected, c.spigot(numberOfDigits));
 
-        /*
         int[] result = c.spigot(10000);
 
         // The 1,000th digit of pi is 8.
@@ -52,6 +51,5 @@ public class CalculatePiTest {
 
         // The 10,000th digit of pi is 7.
         assertEquals(7, result[9999]);
-        */
     }
 }

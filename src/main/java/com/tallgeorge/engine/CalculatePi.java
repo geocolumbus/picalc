@@ -65,6 +65,9 @@ public class CalculatePi {
         return pi;
     }
 
+    /**
+     * Gather the spigot parameters so they can be passed to a calculation method.
+     */
     class SpigotParams {
         public int[] digits;
         public int arrayCounter;
@@ -105,10 +108,16 @@ public class CalculatePi {
         for (spigotParams.digitCounter = numberOfDigits; spigotParams.digitCounter != 0; ) {
             calculateDigit(numberOfDigits, spigotParams);
         }
+
         return spigotParams.digits;
     }
 
 
+    /**
+     * Perform one calculation for a digit.
+     * @param numberOfDigits int, the number of digits to be calculated
+     * @param spigotParams the calculation parameters that change state for each digit's calculation.
+     */
     public void calculateDigit(int numberOfDigits, SpigotParams spigotParams) {
         int q = 0;
         int x = 0;
