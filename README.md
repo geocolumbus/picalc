@@ -71,6 +71,7 @@ See [http://www.jjj.de/hfloat/spigot.haenel.txt](http://www.jjj.de/hfloat/spigot
      * 10,000     6 sec
      * 100,000    6.6 min
      * 1,000,000  11.3 hours
+     *
      * @param numberOfDigits the number of digits to calculate
      * @return an array of digits
      */
