@@ -4,7 +4,7 @@ Three algorithms for calculating Pi.
 
 ## Pi - brute force method.
 
-This is a very inefficient method for calculating pi.
+This is a very inefficient method for calculating pi. It is limited to double precision.
 
 <pre>
 public double bruteForce(int iterations) {
@@ -19,7 +19,7 @@ public double bruteForce(int iterations) {
 
 ## Pi - brute force method with BigDecimal.
 
-This is a very inefficient method for calculating pi.
+This is a very inefficient method for calculating pi. Precision with BigDecimal is higher, but also slower.
 
 <pre>
     public BigDecimal bruteForceBig(int iterations, int precision) {
@@ -57,7 +57,7 @@ This is a very inefficient method for calculating pi.
 
 ## The Rabinowitz and Wagon spigot algorithm.
 
-This is a better method for calculating pi digits. Call spigot(1000) and get back the first 1000 digits of Pi.
+This is a different method for calculating pi digits - a spigot that produces one digit after another. Call spigot(1000) for example, and get back the first 1000 digits of Pi. However, the time gets out of hand on a macbook after one million digits.
 
 See [http://www.jjj.de/hfloat/spigot.haenel.txt](http://www.jjj.de/hfloat/spigot.haenel.txt)
 
@@ -70,11 +70,12 @@ See [http://www.jjj.de/hfloat/spigot.haenel.txt](http://www.jjj.de/hfloat/spigot
      * 
      * msec = 10^(2.01075*log10(numberOfDigits/1000)+1.57978)
      * 
-     * DIGITS    TIME
-     * ------    ----
-     * 10,000     6 sec
-     * 100,000    6.6 min
-     * 1,000,000  11.3 hours
+     * DIGITS         TIME
+     * ------         ---------
+     * 10,000             6 sec
+     * 100,000          6.6 min
+     * 1,000,000       11.3 hours
+     * 1,000,000,000  1,396 years
      *
      * @param numberOfDigits the number of digits to calculate
      * @return an array of digits
