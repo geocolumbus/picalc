@@ -6,7 +6,7 @@ Three algorithms for calculating Pi.
 
 The worst algorithm for calculating Pi:
 
-<code>
+<pre>
 public double bruteForce(int iterations) {
         double pi = 0;
 
@@ -15,11 +15,11 @@ public double bruteForce(int iterations) {
         }
         return pi;
     }
-</code>
+</pre>
 
 ## Pi, but force method with bignum.
 
-<code>
+<pre>
     public BigDecimal bruteForceBig(int iterations, int precision) {
 
         BigDecimal one = new BigDecimal("1");
@@ -51,13 +51,13 @@ public double bruteForce(int iterations) {
         }
 
         return pi;
-</code>
+</pre>
 
 ## The Rabinowitz and Wagon spigot algorithm.
 
 See [http://www.jjj.de/hfloat/spigot.haenel.txt](http://www.jjj.de/hfloat/spigot.haenel.txt)
 
-<code>
+<pre>
     /**
      * The Rabinowitz and Wagon spigot algorithm for generating digits of Pi.
      * http://www.jjj.de/hfloat/spigot.haenel.txt
@@ -127,4 +127,4 @@ See [http://www.jjj.de/hfloat/spigot.haenel.txt](http://www.jjj.de/hfloat/spigot
             spigotParams.preDigit = k;
         }
     }
-</code>
+</pre>
