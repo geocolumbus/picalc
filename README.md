@@ -61,11 +61,11 @@ See [http://www.jjj.de/hfloat/spigot.haenel.txt](http://www.jjj.de/hfloat/spigot
     /**
      * The Rabinowitz and Wagon spigot algorithm for generating digits of Pi.
      * http://www.jjj.de/hfloat/spigot.haenel.txt
-     * <p>
+     * 
      * To calculate the expected time in msec on a 2014 MacBook Pro:
-     * <p>
+     * 
      * msec = 10^(2.01075*log10(numberOfDigits/1000)+1.57978)
-     * <p>
+     * 
      * DIGITS    TIME
      * ------    ----
      * 10,000     6 sec
