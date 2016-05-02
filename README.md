@@ -1,10 +1,10 @@
-# Algorithms for calculating Pi
+# Algorithms for calculating Pi in Java
 
 Three algorithms for calculating Pi.
 
-## Pi, brute force method.
+## Pi - brute force method.
 
-The worst algorithm for calculating Pi:
+This is a very inefficient method for calculating pi.
 
 <pre>
 public double bruteForce(int iterations) {
@@ -17,7 +17,9 @@ public double bruteForce(int iterations) {
     }
 </pre>
 
-## Pi, but force method with bignum.
+## Pi - brute force method with BigDecimal.
+
+This is a very inefficient method for calculating pi.
 
 <pre>
     public BigDecimal bruteForceBig(int iterations, int precision) {
@@ -54,6 +56,8 @@ public double bruteForce(int iterations) {
 </pre>
 
 ## The Rabinowitz and Wagon spigot algorithm.
+
+This is a better method for calculating pi digits. Call spigot(1000) and get back the first 1000 digits of Pi.
 
 See [http://www.jjj.de/hfloat/spigot.haenel.txt](http://www.jjj.de/hfloat/spigot.haenel.txt)
 
